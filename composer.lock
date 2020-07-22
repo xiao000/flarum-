@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09cada282368cec0f90588e9534d6c72",
+    "content-hash": "8ac61082b31e3e51c85954486e2b5b8f",
     "packages": [
         {
             "name": "axy/backtrace",
@@ -2077,6 +2077,125 @@
                 "discussion"
             ],
             "time": "2020-05-04T08:48:54+00:00"
+        },
+        {
+            "name": "fof/components",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfFlarum/components.git",
+                "reference": "d8e337372128d60ae4911d3910b03be71b5ce29a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/components/zipball/d8e337372128d60ae4911d3910b03be71b5ce29a",
+                "reference": "d8e337372128d60ae4911d3910b03be71b5ce29a",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "flarum/core": "^0.1.0-beta.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FoF\\Components\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Sevilla Martín",
+                    "email": "me+fof@datitisev.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "[NOT EXT] Reusable JavaScript components for your Flarum extension",
+            "keywords": [
+                "flarum",
+                "friendsofflarum"
+            ],
+            "time": "2019-12-04T22:41:16+00:00"
+        },
+        {
+            "name": "fof/user-directory",
+            "version": "0.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfFlarum/user-directory.git",
+                "reference": "414069f7839a3b72a41476b9a9f47cb1ce5c0fc2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfFlarum/user-directory/zipball/414069f7839a3b72a41476b9a9f47cb1ce5c0fc2",
+                "reference": "414069f7839a3b72a41476b9a9f47cb1ce5c0fc2",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "flarum/core": "^0.1.0-beta.8",
+                "fof/components": ">=0.1.0"
+            },
+            "replace": {
+                "flagrow/user-directory": "*"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "FoF User Directory",
+                    "icon": {
+                        "name": "far fa-address-book",
+                        "backgroundColor": "#e74c3c",
+                        "color": "#fff"
+                    }
+                },
+                "flagrow": {
+                    "discuss": "https://discuss.flarum.org/d/5682"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FoF\\UserDirectory\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniël Klabbers",
+                    "email": "daniel@klabbers.email",
+                    "homepage": "https://luceos.com/"
+                },
+                {
+                    "name": "Clark Winkelmann",
+                    "email": "clark.winkelmann@gmail.com",
+                    "homepage": "https://clarkwinkelmann.com/"
+                }
+            ],
+            "description": "The permission based public user directory extension for your Flarum forum.",
+            "keywords": [
+                "extension",
+                "flarum",
+                "member list",
+                "user directory",
+                "user list"
+            ],
+            "time": "2020-03-11T02:51:50+00:00"
         },
         {
             "name": "franzl/whoops-middleware",
@@ -5279,6 +5398,63 @@
             ],
             "description": "A polyfill for getallheaders.",
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "reflar/level-ranks",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ReFlar/level-ranks.git",
+                "reference": "8dd2e8bc07ff679110691301a17e04e1de67176e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ReFlar/level-ranks/zipball/8dd2e8bc07ff679110691301a17e04e1de67176e",
+                "reference": "8dd2e8bc07ff679110691301a17e04e1de67176e",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "flarum/core": "^0.1.0-beta.8"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "ReFlar Level Ranks",
+                    "icon": {
+                        "name": "fas fa-percent",
+                        "backgroundColor": "#263238",
+                        "color": "#fff"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Reflar\\LevelRanks\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Shahiem Seymor",
+                    "email": "s.seymor@live.nl",
+                    "homepage": "http://shahiemseymor.com/"
+                }
+            ],
+            "description": "Add a level/experience bar to your flarum Forum.",
+            "keywords": [
+                "experience",
+                "extension",
+                "flarum",
+                "level",
+                "xp"
+            ],
+            "time": "2020-06-06T21:32:04+00:00"
         },
         {
             "name": "s9e/regexp-builder",

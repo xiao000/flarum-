@@ -582,6 +582,10 @@ $catalogue = new MessageCatalogue('zh-hans', array (
     'flarum-tags.ref.create_tag' => '新增标签',
     'flarum-tags.ref.name' => '标签名称',
     'flarum-tags.ref.tags' => '标签',
+    'reflar-level-ranks.admin.settings.title' => '等级设置',
+    'reflar-level-ranks.admin.settings.levelText' => '输入要显示的文本（例如：等级，级别）',
+    'reflar-level-ranks.forum.desc.expText' => '点经验值',
+    'reflar-level-ranks.lib.defaults.level' => '等级',
     'validation.accepted' => ':attribute 必须接受',
     'validation.active_url' => ':attribute 不是合法的 URL',
     'validation.after' => ':attribute 必须是一个在 :date 之后的日期',
@@ -1363,6 +1367,10 @@ If you do not wish to change your password, just ignore this email and nothing w
     'validation.attributes.name_plural' => 'plural name',
     'validation.attributes.tag_count_primary' => 'number of primary tags',
     'validation.attributes.tag_count_secondary' => 'number of secondary tags',
+    'reflar-level-ranks.admin.settings.title' => 'Level Ranks Settings',
+    'reflar-level-ranks.admin.settings.levelText' => 'Enter the text to be displayed for the points (e.g. Rank, Level)',
+    'reflar-level-ranks.forum.desc.expText' => 'EXP',
+    'reflar-level-ranks.lib.defaults.level' => 'Level',
   ),
 ));
 $catalogueZh->addFallbackCatalogue($catalogueEn);

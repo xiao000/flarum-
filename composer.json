@@ -58,7 +58,9 @@
         "flarum/sticky": "^0.1.0",
         "flarum/subscriptions": "^0.1.0",
         "flarum/suspend": "^0.1.0",
-        "flarum/tags": "^0.1.0"
+        "flarum/tags": "^0.1.0",
+        "fof/user-directory": "^0.3.4",
+        "reflar/level-ranks": "^1.2"
     },
     "config": {
         "preferred-install": "dist",

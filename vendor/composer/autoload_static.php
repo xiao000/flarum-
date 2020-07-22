@@ -101,6 +101,10 @@ class ComposerStaticInit79eb0887bc95b0cdcd28ffbfe4f13569
             'Symfony\\Component\\Console\\' => 26,
             'Symfony\\Component\\Config\\' => 25,
         ),
+        'R' => 
+        array (
+            'Reflar\\LevelRanks\\' => 18,
+        ),
         'P' => 
         array (
             'Psr\\SimpleCache\\' => 16,
@@ -163,6 +167,8 @@ class ComposerStaticInit79eb0887bc95b0cdcd28ffbfe4f13569
         'F' => 
         array (
             'Franzl\\Middleware\\Whoops\\' => 25,
+            'FoF\\UserDirectory\\' => 18,
+            'FoF\\Components\\' => 15,
             'Flarum\\Tags\\' => 12,
             'Flarum\\Suspend\\' => 15,
             'Flarum\\Subscriptions\\' => 21,
@@ -329,6 +335,10 @@ class ComposerStaticInit79eb0887bc95b0cdcd28ffbfe4f13569
         'Symfony\\Component\\Config\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/config',
+        ),
+        'Reflar\\LevelRanks\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/reflar/level-ranks/src',
         ),
         'Psr\\SimpleCache\\' => 
         array (
@@ -503,6 +513,14 @@ class ComposerStaticInit79eb0887bc95b0cdcd28ffbfe4f13569
         'Franzl\\Middleware\\Whoops\\' => 
         array (
             0 => __DIR__ . '/..' . '/franzl/whoops-middleware/src',
+        ),
+        'FoF\\UserDirectory\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fof/user-directory/src',
+        ),
+        'FoF\\Components\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fof/components/src',
         ),
         'Flarum\\Tags\\' => 
         array (
