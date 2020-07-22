@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： localhost
--- 生成日期： 2020-07-21 18:46:26
+-- 生成日期： 2020-07-22 15:35:34
 -- 服务器版本： 5.7.26
 -- PHP 版本： 7.3.4
 
@@ -38,6 +38,17 @@ CREATE TABLE `access_tokens` (
   `lifetime_seconds` int(11) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 转存表中的数据 `access_tokens`
+--
+
+INSERT INTO `access_tokens` (`token`, `user_id`, `last_activity_at`, `lifetime_seconds`, `created_at`) VALUES
+('CTy1XuqQCT7tNQ7tUYurW1J95bCwIkj8XLlivdiY', 2, '2020-07-22 02:12:35', 3600, '2020-07-22 02:12:35'),
+('dgu1xw2eHBL7TkcHIrDz7N8obx4BCqRWchxa1hZv', 1, '2020-07-22 03:13:22', 157680000, '2020-07-22 03:12:55'),
+('VwMPlLHZeo0s6RJ9zt4OQA3xCuApwDgGfFHAiiRx', 1, '2020-07-22 06:18:45', 3600, '2020-07-22 06:18:45'),
+('vz3cfJec4LjIRK25xeY21F84bjsWnYGbKThG1dU8', 1, '2020-07-22 02:08:20', 157680000, '2020-07-22 02:04:23'),
+('xB5BYLP8ZSeHwsY91ad5l19V7ghqn5mhxJyypEIM', 1, '2020-07-22 02:15:24', 3600, '2020-07-22 02:15:24');
 
 -- --------------------------------------------------------
 
@@ -85,6 +96,13 @@ CREATE TABLE `discussions` (
   `is_sticky` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- 转存表中的数据 `discussions`
+--
+
+INSERT INTO `discussions` (`id`, `title`, `comment_count`, `participant_count`, `post_number_index`, `created_at`, `user_id`, `first_post_id`, `last_posted_at`, `last_posted_user_id`, `last_post_id`, `last_post_number`, `hidden_at`, `hidden_user_id`, `slug`, `is_private`, `is_approved`, `is_locked`, `is_sticky`) VALUES
+(1, '测试使用', 1, 1, 1, '2020-07-22 02:14:33', 2, 1, '2020-07-22 02:14:33', 2, 1, 1, NULL, NULL, '', 0, 1, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -96,6 +114,13 @@ CREATE TABLE `discussion_tag` (
   `discussion_id` int(10) UNSIGNED NOT NULL,
   `tag_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 转存表中的数据 `discussion_tag`
+--
+
+INSERT INTO `discussion_tag` (`discussion_id`, `tag_id`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -111,6 +136,14 @@ CREATE TABLE `discussion_user` (
   `last_read_post_number` int(10) UNSIGNED DEFAULT NULL,
   `subscription` enum('follow','ignore') COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 转存表中的数据 `discussion_user`
+--
+
+INSERT INTO `discussion_user` (`user_id`, `discussion_id`, `last_read_at`, `last_read_post_number`, `subscription`) VALUES
+(1, 1, '2020-07-22 06:18:50', 1, NULL),
+(2, 1, '2020-07-22 02:14:33', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -372,7 +405,8 @@ INSERT INTO `migrations` (`migration`, `extension`) VALUES
 ('2018_06_27_100200_change_tag_user_add_foreign_keys', 'flarum-tags'),
 ('2018_06_27_103000_rename_discussions_tags_to_discussion_tag', 'flarum-tags'),
 ('2018_06_27_103100_add_discussion_tag_foreign_keys', 'flarum-tags'),
-('2019_04_21_000000_add_icon_to_tags_table', 'flarum-tags');
+('2019_04_21_000000_add_icon_to_tags_table', 'flarum-tags'),
+('2019_06_10_000000_rename_permissions', 'fof-user-directory');
 
 -- --------------------------------------------------------
 
@@ -429,6 +463,13 @@ CREATE TABLE `posts` (
   `is_private` tinyint(1) NOT NULL DEFAULT '0',
   `is_approved` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 转存表中的数据 `posts`
+--
+
+INSERT INTO `posts` (`id`, `discussion_id`, `number`, `created_at`, `user_id`, `type`, `content`, `edited_at`, `edited_user_id`, `hidden_at`, `hidden_user_id`, `ip_address`, `is_private`, `is_approved`) VALUES
+(1, 1, 1, '2020-07-22 02:14:33', 2, 'comment', '<t><p>请勿删除谢谢</p></t>', NULL, NULL, NULL, NULL, '192.168.31.247', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -517,15 +558,22 @@ INSERT INTO `settings` (`key`, `value`) VALUES
 ('custom_less', ''),
 ('default_locale', 'en'),
 ('default_route', '/all'),
-('extensions_enabled', '[\"flarum-approval\",\"flarum-bbcode\",\"flarum-emoji\",\"flarum-lang-english\",\"flarum-flags\",\"flarum-likes\",\"flarum-lock\",\"flarum-markdown\",\"flarum-mentions\",\"flarum-statistics\",\"flarum-sticky\",\"flarum-subscriptions\",\"flarum-suspend\",\"flarum-tags\",\"csineneo-lang-simplified-chinese\"]'),
+('extensions_enabled', '[\"flarum-approval\",\"flarum-bbcode\",\"flarum-emoji\",\"flarum-lang-english\",\"flarum-flags\",\"flarum-likes\",\"flarum-lock\",\"flarum-markdown\",\"flarum-mentions\",\"flarum-statistics\",\"flarum-sticky\",\"flarum-subscriptions\",\"flarum-suspend\",\"flarum-tags\",\"csineneo-lang-simplified-chinese\",\"reflar-level-ranks\",\"fof-user-directory\",\"veroz1-users-list\"]'),
 ('flarum-tags.max_primary_tags', '1'),
 ('flarum-tags.max_secondary_tags', '3'),
 ('flarum-tags.min_primary_tags', '1'),
 ('flarum-tags.min_secondary_tags', '0'),
+('fof-user-directory-link', '1'),
 ('forum_description', ''),
 ('forum_title', 'OKBOSS社区'),
-('mail_driver', 'mail'),
-('mail_from', 'noreply@192.168.31.123'),
+('mail_driver', 'smtp'),
+('mail_encryption', 'ssl'),
+('mail_from', 'business@okboss.io'),
+('mail_host', 'smtp.exmail.qq.com'),
+('mail_password', 'HIboss88888'),
+('mail_port', '465'),
+('mail_username', 'business@okboss.io'),
+('reflar-level-ranks.pointsText', 'BOSS'),
 ('theme_colored_header', '0'),
 ('theme_dark_mode', '0'),
 ('theme_primary_color', '#4D698E'),
@@ -566,7 +614,7 @@ CREATE TABLE `tags` (
 --
 
 INSERT INTO `tags` (`id`, `name`, `slug`, `description`, `color`, `background_path`, `background_mode`, `position`, `parent_id`, `default_sort`, `is_restricted`, `is_hidden`, `discussion_count`, `last_posted_at`, `last_posted_discussion_id`, `last_posted_user_id`, `icon`) VALUES
-(1, 'General', 'general', NULL, '#888', NULL, NULL, 0, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, NULL);
+(1, 'General', 'general', NULL, '#888', NULL, NULL, 0, NULL, NULL, 0, 0, 1, '2020-07-22 02:14:33', 1, 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -613,7 +661,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `is_email_confirmed`, `password`, `bio`, `avatar_url`, `preferences`, `joined_at`, `last_seen_at`, `marked_all_as_read_at`, `read_notifications_at`, `discussion_count`, `comment_count`, `read_flags_at`, `suspended_until`) VALUES
-(1, 'okboss', 'business@okboss.io', 1, '$2y$10$Cie9BPYB4Pk33dobHpGFH.Uc2PyBOECJuAwIAMhpc.hm9U.xILYIq', NULL, NULL, 0x7b226e6f746966795f64697363757373696f6e52656e616d65645f616c657274223a747275652c226e6f746966795f706f73744c696b65645f616c657274223a747275652c226e6f746966795f64697363757373696f6e4c6f636b65645f616c657274223a747275652c226e6f746966795f706f73744d656e74696f6e65645f616c657274223a747275652c226e6f746966795f706f73744d656e74696f6e65645f656d61696c223a66616c73652c226e6f746966795f757365724d656e74696f6e65645f616c657274223a747275652c226e6f746966795f757365724d656e74696f6e65645f656d61696c223a66616c73652c226e6f746966795f6e6577506f73745f616c657274223a747275652c226e6f746966795f6e6577506f73745f656d61696c223a747275652c226e6f746966795f7573657253757370656e6465645f616c657274223a747275652c226e6f746966795f75736572556e73757370656e6465645f616c657274223a747275652c22666f6c6c6f7741667465725265706c79223a66616c73652c22646973636c6f73654f6e6c696e65223a747275652c22696e64657850726f66696c65223a747275652c226c6f63616c65223a227a682d68616e73227d, '2020-07-21 10:18:48', '2020-07-21 10:45:29', NULL, NULL, 0, 0, NULL, NULL);
+(1, 'okboss', 'business@okboss.io', 1, '$2y$10$Cie9BPYB4Pk33dobHpGFH.Uc2PyBOECJuAwIAMhpc.hm9U.xILYIq', NULL, NULL, 0x7b226e6f746966795f64697363757373696f6e52656e616d65645f616c657274223a747275652c226e6f746966795f706f73744c696b65645f616c657274223a747275652c226e6f746966795f64697363757373696f6e4c6f636b65645f616c657274223a747275652c226e6f746966795f706f73744d656e74696f6e65645f616c657274223a747275652c226e6f746966795f706f73744d656e74696f6e65645f656d61696c223a747275652c226e6f746966795f757365724d656e74696f6e65645f616c657274223a747275652c226e6f746966795f757365724d656e74696f6e65645f656d61696c223a747275652c226e6f746966795f6e6577506f73745f616c657274223a747275652c226e6f746966795f6e6577506f73745f656d61696c223a747275652c226e6f746966795f7573657253757370656e6465645f616c657274223a747275652c226e6f746966795f75736572556e73757370656e6465645f616c657274223a747275652c22666f6c6c6f7741667465725265706c79223a66616c73652c22646973636c6f73654f6e6c696e65223a747275652c22696e64657850726f66696c65223a747275652c226c6f63616c65223a227a682d68616e73227d, '2020-07-21 10:18:48', '2020-07-22 06:32:23', NULL, NULL, 0, 0, NULL, NULL),
+(2, 'Amy', 'Amy@okboss.io', 1, '$2y$10$.ih7wnkKS.iP/aunlwi46uuIrGh5VZ2LiIOdCCkN5Ta6GDol6TKJe', NULL, NULL, 0x7b226e6f746966795f64697363757373696f6e52656e616d65645f616c657274223a747275652c226e6f746966795f706f73744c696b65645f616c657274223a747275652c226e6f746966795f64697363757373696f6e4c6f636b65645f616c657274223a747275652c226e6f746966795f706f73744d656e74696f6e65645f616c657274223a747275652c226e6f746966795f706f73744d656e74696f6e65645f656d61696c223a66616c73652c226e6f746966795f757365724d656e74696f6e65645f616c657274223a747275652c226e6f746966795f757365724d656e74696f6e65645f656d61696c223a66616c73652c226e6f746966795f6e6577506f73745f616c657274223a747275652c226e6f746966795f6e6577506f73745f656d61696c223a747275652c226e6f746966795f7573657253757370656e6465645f616c657274223a747275652c226e6f746966795f75736572556e73757370656e6465645f616c657274223a747275652c22666f6c6c6f7741667465725265706c79223a66616c73652c22646973636c6f73654f6e6c696e65223a747275652c22696e64657850726f66696c65223a747275652c226c6f63616c65223a227a682d68616e73227d, '2020-07-22 02:05:58', '2020-07-22 02:16:08', NULL, NULL, 1, 1, NULL, NULL);
 
 --
 -- 转储表的索引
@@ -821,7 +870,7 @@ ALTER TABLE `api_keys`
 -- 使用表AUTO_INCREMENT `discussions`
 --
 ALTER TABLE `discussions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 使用表AUTO_INCREMENT `flags`
@@ -851,7 +900,7 @@ ALTER TABLE `notifications`
 -- 使用表AUTO_INCREMENT `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- 使用表AUTO_INCREMENT `tags`
@@ -863,7 +912,7 @@ ALTER TABLE `tags`
 -- 使用表AUTO_INCREMENT `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 限制导出的表

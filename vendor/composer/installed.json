@@ -7591,6 +7591,72 @@
         ]
     },
     {
+        "name": "veroz1/users-list",
+        "version": "0.1.3",
+        "version_normalized": "0.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/VeroZ1/users-list.git",
+            "reference": "f82d1a7b5f6a82fcc5b1d5e9b93c9c07fdf4d56f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/VeroZ1/users-list/zipball/f82d1a7b5f6a82fcc5b1d5e9b93c9c07fdf4d56f",
+            "reference": "f82d1a7b5f6a82fcc5b1d5e9b93c9c07fdf4d56f",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "flarum/core": "^0.1.0-beta.8"
+        },
+        "time": "2019-08-05T10:10:42+00:00",
+        "type": "flarum-extension",
+        "extra": {
+            "flarum-extension": {
+                "title": "Flagrow Users List",
+                "icon": {
+                    "name": "fas fa-users",
+                    "backgroundColor": "#f4f4f4",
+                    "color": "#5f4bb6"
+                }
+            },
+            "flagrow": {
+                "discuss": "https://discuss.flarum.org/d/6009-flagrow-users-list-review-and-mass-mail-users-of-your-forum"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Flagrow\\UsersList\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Daniël Klabbers",
+                "email": "daniel@klabbers.email",
+                "homepage": "http://luceos.com"
+            },
+            {
+                "name": "Nikolai Morozov",
+                "email": "avanmorozov@gmail.com"
+            }
+        ],
+        "description": "Add users list in admin panel.",
+        "keywords": [
+            "Users",
+            "admin"
+        ]
+    },
+    {
         "name": "wikimedia/less.php",
         "version": "v3.0.0",
         "version_normalized": "3.0.0.0",

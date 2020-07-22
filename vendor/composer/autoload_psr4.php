@@ -99,6 +99,7 @@ return array(
     'Flarum\\Auth\\Facebook\\' => array($vendorDir . '/flarum/auth-facebook/src'),
     'Flarum\\Approval\\' => array($vendorDir . '/flarum/approval/src'),
     'Flarum\\' => array($vendorDir . '/flarum/core/src'),
+    'Flagrow\\UsersList\\' => array($vendorDir . '/veroz1/users-list/src'),
     'Fig\\Http\\Message\\' => array($vendorDir . '/fig/http-message-util/src'),
     'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
     'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/src'),

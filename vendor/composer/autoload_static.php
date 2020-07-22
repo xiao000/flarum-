@@ -184,6 +184,7 @@ class ComposerStaticInit79eb0887bc95b0cdcd28ffbfe4f13569
             'Flarum\\Auth\\Facebook\\' => 21,
             'Flarum\\Approval\\' => 16,
             'Flarum\\' => 7,
+            'Flagrow\\UsersList\\' => 18,
             'Fig\\Http\\Message\\' => 17,
             'FastRoute\\' => 10,
         ),
@@ -581,6 +582,10 @@ class ComposerStaticInit79eb0887bc95b0cdcd28ffbfe4f13569
         'Flarum\\' => 
         array (
             0 => __DIR__ . '/..' . '/flarum/core/src',
+        ),
+        'Flagrow\\UsersList\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/veroz1/users-list/src',
         ),
         'Fig\\Http\\Message\\' => 
         array (

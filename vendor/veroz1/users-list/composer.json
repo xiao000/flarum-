@@ -1,0 +1,42 @@
+{
+  "name": "veroz1/users-list",
+  "description": "Add users list in admin panel.",
+  "type": "flarum-extension",
+  "keywords": [
+    "users",
+    "admin"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Daniël Klabbers",
+      "email": "daniel@klabbers.email",
+      "homepage": "http://luceos.com"
+    },
+    {
+      "name": "Nikolai Morozov",
+      "email": "avanmorozov@gmail.com"
+    }
+  ],
+  "require": {
+    "flarum/core": "^0.1.0-beta.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Flagrow\\UsersList\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Flagrow Users List",
+      "icon": {
+        "name": "fas fa-users",
+        "backgroundColor": "#f4f4f4",
+        "color": "#5f4bb6"
+      }
+    },
+    "flagrow": {
+      "discuss": "https://discuss.flarum.org/d/6009-flagrow-users-list-review-and-mass-mail-users-of-your-forum"
+    }
+  }
+}
